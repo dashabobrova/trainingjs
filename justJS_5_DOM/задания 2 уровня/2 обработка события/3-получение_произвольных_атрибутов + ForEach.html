@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal fade" 
+         id="exampleModal" 
+         tabindex="-1" 
+         aria-labelledby="exampleModalLabel" 
+         aria-hidden="true">
+		текст
+    </div>
+
+    <!-- 
+    Задание.
+    1. Сохраните ссылку на div в переменную
+    2. Назначьте div'у обработку клика, у функции-обработчика объявите параметр event.
+    3. При клике из event.target c помощью getAttribute() получите значение
+    каждого атрибута и выведите в консоль.
+    -->
+
+    <script>
+        let div = document.querySelector('div');
+
+        div.addEventListener('click', function(e){
+            let attrs = e.target.attributes;
+            let attrsArray = Array.from(attrs); // метод forEach есть только у массивов 
+            attrsArray.forEach(attr => console.log(attr.value))
+
+
+/* 
+    const forEach = Array.prototype.forEach.call.bind(Array.prototype.forEach);
+
+    // Then later...
+    forEach(temp1.attributes, (el) => {
+        console.log(el)
+    }); 
+
+    если частоо используется пробежка по всякие childsNode и тп, то этот форичя можно вынести в utils
+
+    берется метод forEach и привязывается к себе, и возращается новая функция
+*/
+
+           /*  for (let i = 0; i< e.target.attributes.length; i++){
+                console.log(e.target.attributes[i].value)
+            } */
+
+           /*  console.log(event.target.getAttribute('class'));
+            console.log(event.target.getAttribute('id'));
+            console.log(event.target.getAttribute('tabindex'));
+            console.log(event.target.getAttribute('aria-labelledby'));
+            console.log(event.target.getAttribute('aria-hidden')); */
+        })
+    </script>
+</body>
+</html>
